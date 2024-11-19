@@ -38,7 +38,7 @@ done
 ```
 - **Bash script output:**
 
--> cat inputdata
+-> cat inputFile
 ```
 2, 22747
 3, 5308
