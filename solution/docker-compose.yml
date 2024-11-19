@@ -8,7 +8,7 @@ services:
         ports:
           - 9393:9300
         volumes:
-          - ${PWD}/inputFile:/csvserver/inputdata
+          - ${PWD}/inputFile:/csvserver/inputFile
         environment:
           - CSVSERVER_BORDER=Orange
           
