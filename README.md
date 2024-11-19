@@ -51,5 +51,5 @@ done
 ```
 - **Docker run command:**
 ```
-docker run -d --name csvserver -e CSVSERVER_BORDER='Orange' -v ${PWD}/inputdata:/csvserver/inputdata -p 9393:9300 infracloudio/csvserver
+docker run -d --name csvserver -e CSVSERVER_BORDER='Orange' -v ${PWD}/inputFile:/csvserver/inputdata -p 9393:9300 infracloudio/csvserver
 ```
