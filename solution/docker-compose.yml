@@ -1,0 +1,24 @@
+version: "3.9"
+
+services:
+
+    csvserver:
+        image: infracloudio/csvserver:latest
+        container_name: "csvserver"
+        ports:
+          - 9393:9300
+        volumes:
+          - ${PWD}/inputFile:/csvserver/inputdata
+        environment:
+          - CSVSERVER_BORDER=Orange
+          
+    prometheus:
+        image: prom/prometheus:v2.45.2
+        container_name: "prometheus"
+        ports:
+          - 9090:9090
+        volumes:
+          - ${PWD}/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+        command: --web.enable-lifecycle --config.file=/etc/prometheus/prometheus.yml
+        depends_on:
+          - csvserver

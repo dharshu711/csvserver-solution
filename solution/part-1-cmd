@@ -1,0 +1,12 @@
+docker run -d --name csvserver -p 9393:9300 infracloudio/csvserver:latest
+
+docker ps
+
+./gencsv.sh 2 8
+
+docker run -d --name csvserver -p 9393:9300 -v ${PWD}/inputFile:/csvserver/inputdata -e CSVSERVER_BORDER=Orange infracloudio/csvserver:latest
+
+docker exec -it csvserver /bin/bash
+
+curl http://localhost:9393/raw
+
